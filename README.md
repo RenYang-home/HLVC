@@ -2,9 +2,11 @@
 
 The project page for the paper:
 
-Ren Yang, Fabian Mentzer, Luc Van Gool and Radu Timofte, "Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement", in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020.
+Ren Yang, Fabian Mentzer, Luc Van Gool and Radu Timofte, "Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement", in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020. [[Paper]](https://arxiv.org/abs/2003.01966). 
 
-The camera-ready paper is at [https://arxiv.org/abs/2003.01966](https://arxiv.org/abs/2003.01966).
+Email: ren.yang@vision.ee.ethz.ch
+
+WeChat: yangren93
 
 Citation:
 ```
@@ -45,9 +47,3 @@ The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is sh
 ![ ](Results/RD_curve.png)
 
 ![ ](Results/Visual_results.png)
-
-## Contact
-
-Email: ren.yang@vision.ee.ethz.ch
-
-WeChat: yangren93
