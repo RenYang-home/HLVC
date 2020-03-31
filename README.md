@@ -44,6 +44,9 @@ The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is sh
 
 ![ ](Results/RD_curve.png)
 
+The visual results of our HLVC approach and the *x265 LDP very fast* anchor is shown in Figure 13.
+
+![ ](Results/Visual_results.png)
 
 ## Contact
 
