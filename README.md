@@ -38,7 +38,7 @@ We calculate the Bjøntegaard-Delta Bit-Rate (BDBR) values with the anchor of *x
 ffmpeg -pix_fmt yuv420p -s WidthxHeight -r Framerate  -i  Name.yuv -vframes Frame -c:v libx265 -preset veryfast -tune zerolatency -x265-params "crf=Quality:keyint=10:verbose=1" Name.mkv
 ```
 ### Results
-The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is shown in [data.xlsx](/Results/data.xlsx).
+The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is shown in [data.xlsx](/Results).
 
 ## Contact
 
