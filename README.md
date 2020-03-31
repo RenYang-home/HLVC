@@ -41,6 +41,7 @@ ffmpeg -pix_fmt yuv420p -s WidthxHeight -r Framerate  -i  Name.yuv -vframes Fram
 The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is shown in [data.xlsx](/Results). The BDBR values can be calculated by the [Matlab implementation](https://www.mathworks.com/matlabcentral/fileexchange/41749-bjontegaard-metric-calculation-bd-psnr) or the [Python implementation](https://github.com/Anserw/Bjontegaard_metric). The the BDBR results and the rate-distortion curve are shown in Table 1 and Figure 6, respectively. It can be seen that our HLVC approach outperforms all previous learned video compression methods and the *x265 LDP very fast* anchor.
 
 ![ ](Results/BDBR.png)
+
 ![ ](Results/RD_curve.png)
 
 
