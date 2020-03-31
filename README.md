@@ -38,10 +38,11 @@ We calculate the Bjøntegaard-Delta Bit-Rate (BDBR) values with the anchor of *x
 ffmpeg -pix_fmt yuv420p -s WidthxHeight -r Framerate  -i  Name.yuv -vframes Frame -c:v libx265 -preset veryfast -tune zerolatency -x265-params "crf=Quality:keyint=10:verbose=1" Name.mkv
 ```
 ### Results
-The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is shown in [data.xlsx](/Results). The BDBR values can be calculated by the [Matlab implementation](https://www.mathworks.com/matlabcentral/fileexchange/41749-bjontegaard-metric-calculation-bd-psnr) or the [Python implementation](https://github.com/Anserw/Bjontegaard_metric). The rate-distortion curve and the BDBR results are shown in Figure and Table 1, respectively. It can be seen that our HLVC approach outperforms all previous learned video compression methods and the *x265 LDP very fast* anchor.
+The detailed results (bpp, PSNR and MS-SSIM values) on each video sequence is shown in [data.xlsx](/Results). The BDBR values can be calculated by the [Matlab implementation](https://www.mathworks.com/matlabcentral/fileexchange/41749-bjontegaard-metric-calculation-bd-psnr) or the [Python implementation](https://github.com/Anserw/Bjontegaard_metric). The the BDBR results and the rate-distortion curve are shown in Table 1 and Figure 6, respectively. It can be seen that our HLVC approach outperforms all previous learned video compression methods and the *x265 LDP very fast* anchor.
 
-![ ](Results/RD_Curve.png)
 ![ ](Results/BDBR.png)
+![ ](Results/RD_curve.png)
+
 
 ## Contact
 
