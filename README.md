@@ -11,7 +11,7 @@ Citation:
 @inproceedings{yang2020Learning,
   title={Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement},
   author={Yang, Ren and Mentzer, Fabian and Van Gool, Luc and Timofte, Radu},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2020}
 }
 ```
