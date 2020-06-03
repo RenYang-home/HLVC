@@ -31,7 +31,7 @@ We test our HLVC approach on the JCT-VC (Classes B, C and D) and the [UVG](http:
 
 In our approach, the entropy model requires each dimension to be a multiple of 16, and therefore we crop the 1920 x 1080 videos to 1920 x 1072 by cutting the bottom 8 pixels, using the following command.
 ```
-ffmpeg -y -pix_fmt yuv420p -s 1920x1080 -i Name.yuv -filter:v "crop=1920:1072:1:1" Name_crop.yuv 
+ffmpeg -y -pix_fmt yuv420p -s 1920x1080 -i Name.yuv -filter:v "crop=1920:1072:0:0" Name_crop.yuv 
 ```
 We calculate the Bjøntegaard-Delta Bit-Rate (BDBR) values with the anchor of *x265 LDP very fast*, which is implemented by the following command with Quality = 15, 19, 23, 27 for the JCT-VC dataset, and Quality = 11, 15, 19, 23 for UVG videos (to make the bit-rate range reasonable for comparison).
 ```
