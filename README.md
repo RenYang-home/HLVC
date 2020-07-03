@@ -162,9 +162,7 @@ HLVC_video_fast/slow.py has the following auguments:
 ```
 --path, the path to the PNG files.
 
---GOP, the GOP size. Do not change, in HLVC_video_fast/slow.py, GOP is fixed as 10. Other GOP sizes need different combinations of frame compression networks, and need to modify the code of video encoder/decoder.
-
---frame, the total frame, should be GOP * n + 1, e.g., 101.
+--frame, the total frame, should be GOP (=10) * n + 1, e.g., 101.
 
 --mode, PSNR or MS-SSIM.
 
@@ -177,7 +175,7 @@ HLVC_video_fast/slow.py has the following auguments:
 ```
 For example,
 ```
-python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --GOP 10 --mode PSNR --l 1024
+python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --mode PSNR --l 1024
 ```
 
 - **HLVC_video_decoder.py** (currently not including the enhancement network WRQE)
@@ -185,9 +183,7 @@ python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --GOP 10 --mode
 ```
 --path_bin, the path to the bin files (bitstreams).
 
---GOP, the GOP size. Do not change, in HLVC_video_fast/slow.py, GOP is fixed as 10. Other GOP sizes need different combinations of frame compression networks, and need to modify the code of video encoder/decoder.
-
---frame, the total frame, should be GOP * n + 1, e.g., 101.
+--frame, the total frame, should be GOP (=10) * n + 1, e.g., 101.
 
 --mode, PSNR or MS-SSIM.
 
@@ -200,7 +196,7 @@ python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --GOP 10 --mode
 ```
 For example,
 ```
-python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --frame 101 --GOP 10 --mode PSNR --l 1024
+python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --frame 101 --mode PSNR --l 1024
 ```
 
 ### To do
