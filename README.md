@@ -53,6 +53,8 @@ Note that, our HLVC codes currently only supports the frames with the height and
 ffmpeg -pix_fmt yuv420p -s 1920x1080 -i Name.yuv -vframes Frame -filter:v "crop=1920:1072:0:0" path_to_PNG/f%03d.png
 ```
 
+We uploaded a prepared sequence *BasketballPass* here as a test demo, which contains the PNG files of the first 101 frames. Note that, ffmpeg generates frames starting from f001.png in the folder "BasketballPass", while in Figure 1, the frame index begins from 0.
+
 ### Dependency
 
 - Tensorflow 1.12
@@ -113,9 +115,9 @@ python HLVC_layer2_B-frame_decoder.py --ref_1 f001_com.png --ref_2 f011_com.png 
 
 - **HLVC_layer3_P-frame(_decoder).py**
 
-The same network as HLVC_layer2_P-frame(_decoder).py. Since we use BPG to compressed I-frames for the PSNR model and BPG has different distortion features from learned compressed, we train two models for the Layer 3 frames near from Layer 1 (I-frames) and near from layer 2. That is,
+The same network as HLVC_layer2_P-frame(_decoder).py. Since we use BPG to compressed I-frames for the PSNR model and BPG has different distortion features from learned compressed, we train two PSNR models for the Layer 3 frames near from Layer 1 (I-frames) and near from layer 2. That is,
 ```
-parser.add_argument("--nearlayer", type=int, default=1, choices=[1, 2])
+parser.add_argument("--nearlayer", type=int, default=1, choices=[1, 2]) # not used in MS-SSIM models
 ```
 For example, in Figure 1, the frames 1, 2, 8 and 9 are near layer 1 and the frames 3, 4, 6 and 7 are near layer 2. Note that, for layer 3, lambda = 8, 16, 32 and 64 for MS-SSIM, and lambda = 256, 512, 1024 and 2048 for PSNR.
 
@@ -135,7 +137,7 @@ The combination of short distance B- and P-frames, using the "single motion" str
 
 --bin, the path to save/read the compressed bitstream.
 
---nearlayer, the same as that in HLVC_layer3_P-frame(_decoder).py
+--nearlayer, the same as that in HLVC_layer3_P-frame(_decoder).py. (only for PSNR models)
 
 --mode, select the PSNR/MS-SSIM optimized model.
 
