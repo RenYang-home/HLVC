@@ -75,7 +75,7 @@ We uploaded a prepared sequence *BasketballPass* here as a test demo, which cont
 
   (*In our MS-SSIM model, we use Lee et al., ICLR 2019 to compress I-frames.*)
 
-### How to use
+### Compressing frame
 
 - **HLVC_layer2_P-frame(_decoder).py**
 
@@ -151,6 +151,62 @@ python HLVC_layer3_BP-frame.py --ref f001_com.png --raw_1 f001.png --com_1 f001_
 ```
 python HLVC_layer3_BP-frame_decoder.py --ref f001_com.png --com_1 f001_com.png --com_2 f002_com.png --bin f001_002.bin --nearlayer 1 --mode PSNR --l 1024
 ```
+
+### Compressing video
+
+- **HLVC_video_fast/slow.py** (currently not including the enhancement network WRQE)
+
+In HLVC_video_fast.py, the B-frames are used for layer 2 and the BP-frames combination is used for layer 3. In HLVC_video_slow, we try different networks for compresseing layers 2 and 3 in an exhaustive manner, and select the best performed network. This way, the performance can be improved at the cost of higher complexity. To compare two compression networks, in the case of Quality_2 - Quality_1 > 0 and bpp_2 - bpp_1 > 0, if (Quality_2 - Quality_1)/(bpp_2 - bpp_1) > threshold, the 2nd network is considered as the better one. We empirically set the threshold as 10 for PSNR (dB) and 0.1 for MS-SSIM index. 
+
+HLVC_video_fast/slow.py has the following auguments:
+```
+--path, the path to the PNG files.
+
+--GOP, the GOP size, e.g., 10.
+
+--frame, the total frame, should be GOP * n + 1, e.g., 101.
+
+--mode, PSNR or MS-SSIM.
+
+--python_path, the path to python (only used for MS-SSIM model to run Lee et al., ICLR 2019 on I-frames);
+
+--CA_model_path, the path to CA_EntropyModel_Test of Lee et al., ICLR 2019 (only used for MS-SSIM model);
+
+--l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM.
+
+```
+For example,
+```
+python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --GOP 10 --mode PSNR --l 1024
+```
+
+- **HLVC_video_decoder.py** (currently not including the enhancement network WRQE)
+
+```
+--path_bin, the path to the bin files (bitstreams).
+
+--GOP, the GOP size, e.g., 10.
+
+--frame, the total frame, should be GOP * n + 1, e.g., 101.
+
+--mode, PSNR or MS-SSIM.
+
+--python_path, the path to python (only used for MS-SSIM model to run Lee et al., ICLR 2019 on I-frames);
+
+--CA_model_path, the path to CA_EntropyModel_Test of Lee et al., ICLR 2019 (only used for MS-SSIM model);
+
+--l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM.
+
+```
+For example,
+```
+python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --frame 101 --GOP 10 --mode PSNR --l 1024
+```
+
+### To do
+
+Release the codes of the enhancement network WRQE.
+
 
 ## Performance
 ### Settings
