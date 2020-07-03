@@ -156,13 +156,13 @@ python HLVC_layer3_BP-frame_decoder.py --ref f001_com.png --com_1 f001_com.png -
 
 - **HLVC_video_fast/slow.py** (currently not including the enhancement network WRQE)
 
-In HLVC_video_fast.py, the B-frames are used for layer 2 and the BP-frames combination is used for layer 3. In HLVC_video_slow, we try different networks for compresseing layers 2 and 3 in an exhaustive manner, and select the best performed network. This way, the performance can be improved at the cost of higher complexity. To compare two compression networks, in the case of Quality_2 - Quality_1 > 0 and bpp_2 - bpp_1 > 0, if (Quality_2 - Quality_1)/(bpp_2 - bpp_1) > threshold, the 2nd network is considered as the better one. We empirically set the threshold as 10 for PSNR (dB) and 0.1 for MS-SSIM index. 
+We provide two demo codes for compressing a video sequence. In HLVC_video_fast.py, the B-frames are used for layer 2 and the BP-frames combination is used for layer 3. In HLVC_video_slow, we try different networks for compresseing layers 2 and 3 in an exhaustive manner, and select the best performed network. This way, the performance can be improved at the cost of higher complexity. To compare two compression networks, in the case of Quality_2 - Quality_1 > 0 and bpp_2 - bpp_1 > 0, if (Quality_2 - Quality_1)/(bpp_2 - bpp_1) > threshold, the 2nd network is considered as the better one. We empirically set the threshold as 10 for PSNR (dB) and 0.1 for MS-SSIM index. 
 
 HLVC_video_fast/slow.py has the following auguments:
 ```
 --path, the path to the PNG files.
 
---GOP, the GOP size, e.g., 10.
+--GOP, the GOP size. Do not change, in HLVC_video_fast/slow.py, GOP is fixed as 10. Other GOP sizes need different combinations of frame compression networks, and need to modify the code of video encoder/decoder.
 
 --frame, the total frame, should be GOP * n + 1, e.g., 101.
 
@@ -185,7 +185,7 @@ python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --GOP 10 --mode
 ```
 --path_bin, the path to the bin files (bitstreams).
 
---GOP, the GOP size, e.g., 10.
+--GOP, the GOP size. Do not change, in HLVC_video_fast/slow.py, GOP is fixed as 10. Other GOP sizes need different combinations of frame compression networks, and need to modify the code of video encoder/decoder.
 
 --frame, the total frame, should be GOP * n + 1, e.g., 101.
 
