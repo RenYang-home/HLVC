@@ -30,10 +30,10 @@ This paper proposes a Hierarchical Learned Video Compression (HLVC) method with 
 
 We provide the codes for compressing video frame in various manners, i.e.,
 
-- HLVC_layer2_P-frame(_decoder).py -- Long distance P-frame with high quality (layer 2)
-- HLVC_layer2_B-frame(_decoder).py -- Long distance B-frame with high quality (layer 2)
-- HLVC_layer3_P-frame(_decoder).py -- Short distance P-frame with low quality (layer 3)
-- HLVC_layer3_BP-frame(_decoder).py -- Short distance BP-frames combination with low quality (layer 3), using the "single frame" strategy
+- HLVC_layer2_P-frame(_decoder).py -- Long-distance P-frame with high quality (layer 2)
+- HLVC_layer2_B-frame(_decoder).py -- Long-distance B-frame with high quality (layer 2)
+- HLVC_layer3_P-frame(_decoder).py -- Short-distance P-frame with low quality (layer 3)
+- HLVC_layer3_BP-frame(_decoder).py -- BP-frames combination with low quality (layer 3), using the "single frame" strategy. It includes the compression of medium-distance P-frame and short-distance B-frame.
 
 Thay can be flexibly combined to achieve different frame structures and GOP sizes.
 
