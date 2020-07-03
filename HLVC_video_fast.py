@@ -14,6 +14,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("--path", default='BasketballPass')
 parser.add_argument("--frame", type=int, default=101)
 parser.add_argument("--GOP", type=int, default=10, choices=[10])
+# Do not change the GOP size, this demo only supports GOP = 10. Other GOPs need to modify this code.
 parser.add_argument("--mode", default='PSNR', choices=['PSNR', 'MS-SSIM'])
 parser.add_argument("--python_path", default='python')
 parser.add_argument("--CA_model_path", default='CA_EntropyModel_Test')
