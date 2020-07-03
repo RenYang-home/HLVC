@@ -30,7 +30,34 @@ This paper proposes a Hierarchical Learned Video Compression (HLVC) method with 
 
 We provide the codes for compressing video frame in various manners, i.e.,
 
-- HLVC_layer2_P-frame(_decoder)
+- HLVC_layer2_P-frame(_decoder).py -- Long distance P-frame with relatively high quality (layer 2)
+- HLVC_layer2_B-frame(_decoder).py -- Long distance B-frame with relatively high quality (layer 2)
+- HLVC_layer3_P-frame(_decoder).py -- Short distance P-frame with low quality (layer 3)
+- HLVC_layer3_BP-frame(_decoder).py -- Short distance BP-frames combination with low quality (layer 3), using the "single frame" strategy
+
+We also provide the demo codes for compress a video sequence, i.e., HLVC_video_fast/slow.py and HLVC_video_decoder.py
+
+### Dependency
+
+- Tensorflow 1.12
+
+- Tensorflow-compression 1.0 ([Download link](https://github.com/tensorflow/compression/releases/tag/v1.0))
+
+  (*After downloading, put the folder "tensorflow_compression" to the same directory as the codes.*)
+
+- Pre-trained models ([Download link](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing))
+
+  (*Download the folder "HLVC_model" to the same directory as the codes.*)
+
+- BPG ([Download link](https://bellard.org/bpg/))  -- needed only for the PSNR model
+
+  (*In our PSNR model, we use BPG to compress I-frames instead of training learned image compression models.*)
+
+- Context-adaptive image compression model, Lee et al., ICLR 2019 ([Paper](https://arxiv.org/abs/1809.10452), [Model](https://github.com/JooyoungLeeETRI/CA_Entropy_Model)) -- needed only for the MS-SSIM model
+
+  (*In our MS-SSIM model, we use Lee et al., ICLR 2019 to compress I-frames.*)
+
+### How to use
 
 ## Performance
 ### Settings
