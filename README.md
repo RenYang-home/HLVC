@@ -75,7 +75,7 @@ ffmpeg -pix_fmt yuv420p -s 1920x1080 -i Name.yuv -vframes Frame -filter:v "crop=
 
 ### How to use
 
-- HLVC_layer2_P-frame(_decoder).py
+- **HLVC_layer2_P-frame(_decoder).py**
 
 ```
 --ref, reference frame.
@@ -99,7 +99,7 @@ python HLVC_layer2_P-frame.py --ref f001_com.png --raw f006.png --com f006_com.p
 python HLVC_layer2_P-frame_decoder.py --ref f001_com.png --bin f006.bin --com f006_dec.png --mode PSNR --l 4096
 ```
 
-- HLVC_layer2_B-frame(_decoder).py
+- **HLVC_layer2_B-frame(_decoder).py**
 
 Similar to HLVC_layer2_P-frame(_decoder).py but needs two reference frames.
 
@@ -111,13 +111,45 @@ python HLVC_layer2_B-frame.py --ref_1 f001_com.png --ref_2 f011_com.png --raw f0
 python HLVC_layer2_B-frame_decoder.py --ref_1 f001_com.png --ref_2 f011_com.png --bin f006.bin --com f006_dec.png --mode PSNR --l 4096
 ```
 
-- HLVC_layer3_P-frame(_decoder).py
+- **HLVC_layer3_P-frame(_decoder).py**
 
 The same network as HLVC_layer2_P-frame(_decoder).py. Since we use BPG to compressed I-frames for the PSNR model and BPG has different distortion features from learned compressed, we train two models for the Layer 3 frames near from Layer 1 (I-frames) and near from layer 2. That is,
 ```
 parser.add_argument("--nearlayer", type=int, default=1, choices=[1, 2])
 ```
-For example, in Figure 1, the frames 1, 2, 8 and 9 are near layer 1 and the frames 3, 4, 6 and 7 are near layer 2.
+For example, in Figure 1, the frames 1, 2, 8 and 9 are near layer 1 and the frames 3, 4, 6 and 7 are near layer 2. Note that, for layer 3, lambda = 8, 16, 32 and 64 for MS-SSIM, and lambda = 256, 512, 1024 and 2048 for PSNR.
+
+- **HLVC_layer3_BP-frame(_decoder).py**
+
+The combination of short distance B- and P-frames, using the "single motion" strategy proposed in Section 3.3 of our paper. 
+```
+--ref, reference frame.
+
+--raw_1, the raw frame (next to reference) to be compressed. (only in the encoder)
+
+--raw_2, the raw frame (next to --raw_1) to be compressed. (only in the encoder)
+
+--com_1, the path to save the compressed/decompressed frame of --raw_1.
+
+--com_2, the path to save the compressed/decompressed frame of --raw_2.
+
+--bin, the path to save/read the compressed bitstream.
+
+--nearlayer, the same as that in HLVC_layer3_P-frame(_decoder).py
+
+--mode, select the PSNR/MS-SSIM optimized model.
+
+--l, the lambda value. For layer 3, l = 8, 16, 32 and 64 for MS-SSIM, and l = 256, 512, 1024 and 2048 for PSNR.
+```
+
+For example,
+```
+python HLVC_layer3_BP-frame.py --ref f001_com.png --raw_1 f001.png --com_1 f001_com.png --raw_2 f002.png --com_2 f002_com.png --bin f001_002.bin --nearlayer 1 --mode PSNR --l 1024
+```
+```
+python HLVC_layer3_BP-frame_decoder.py --ref f001_com.png --com_1 f001_com.png --com_2 f002_com.png --bin f001_002.bin --nearlayer 1 --mode PSNR --l 1024
+```
+
 ## Performance
 ### Settings
 We test our HLVC approach on the JCT-VC (Classes B, C and D) and the [UVG](http://ultravideo.cs.tut.fi/#testsequences) datasets. Among them, the UVG and JCT-VC Class B are high resolution (1920 x 1080) datasets, and the JCT-VC Classes C and D have resolutions of 832 x 480 and 416 x 240, respectively. For a fair comparison with [Lu *et al.*, DVC](http://openaccess.thecvf.com/content_CVPR_2019/papers/Lu_DVC_An_End-To-End_Deep_Video_Compression_Framework_CVPR_2019_paper.pdf), we follow Lu *et al.*, DVC to test JCT-VC videos on the first 100 frames, and test UVG videos on all frames. Note that, the [UVG](http://ultravideo.cs.tut.fi/#testsequences) dataset has been enlarged recently. To compare with previous approaches, we only test on the original 7 videos in UVG, i.e., *Beauty*, *Bosphorus*, *HoneyBee*, *Jockey*, *ReadySetGo*, *ShakeNDry* and *YachtRide*.
