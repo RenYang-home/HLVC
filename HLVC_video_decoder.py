@@ -1,12 +1,6 @@
 import argparse
 import numpy as np
 import os
-from scipy import misc
-from ms_ssim_np import MultiScaleSSIM
-from Compare_select import compare
-from Compare_select import select
-from Compare_select import compare_four
-from Compare_select import select_four
 
 parser = argparse.ArgumentParser(
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -16,7 +10,7 @@ parser.add_argument("--frame", type=int, default=101)
 parser.add_argument("--GOP", type=int, default=10, choices=[10])
 parser.add_argument("--mode", default='PSNR', choices=['PSNR', 'MS-SSIM'])
 parser.add_argument("--python_path", default='python')
-parser.add_argument("--CA_model_path", default='CA_EntropyModel_Test/')
+parser.add_argument("--CA_model_path", default='CA_EntropyModel_Test')
 parser.add_argument("--l", type=int, default=1024, choices=[8, 16, 32, 64, 256, 512, 1024, 2048])
 parser.add_argument("--enh", type=int, default=1, choices=[0, 1])
 
