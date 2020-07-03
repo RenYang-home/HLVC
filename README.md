@@ -28,7 +28,9 @@ This paper proposes a Hierarchical Learned Video Compression (HLVC) method with 
 
 ## Codes
 
-Will be released very soon.
+We provide the codes for compressing video frame in various manners, i.e.,
+
+- HLVC_layer2_P-frame(_decoder)
 
 ## Performance
 ### Settings
