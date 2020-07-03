@@ -5,7 +5,7 @@ import os
 parser = argparse.ArgumentParser(
     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument("--path_bin", default='BasketballPass_com_slow_MS-SSIM_32')
+parser.add_argument("--path_bin", default='BasketballPass_com_slow_PSNR_1024')
 parser.add_argument("--frame", type=int, default=101)
 parser.add_argument("--GOP", type=int, default=10, choices=[10])
 # Do not change the GOP size, this demo only supports GOP = 10. Other GOPs need to modify this code.
