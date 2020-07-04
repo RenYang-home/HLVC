@@ -2,6 +2,8 @@ Our latest works on learned video compression:
 
 - Recurrent Learned Video Compression (RLVC) [[Paper](https://arxiv.org/abs/2006.13560)]
 
+- OpenDVC: An open source implementation of DVC [[Codes](https://github.com/RenYang-home/OpenDVC)] [[Technical report](https://arxiv.org/abs/2006.15862)]
+
 # Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement
 
 **We corrected one model in our [pre-trained models](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing), if you downloaded them before July 5, 2020, please re-download the folder "HLVC_model\Layer3_BP-frame\Layer3_BP_PSNR_2048_aroundlayer1". We are sorry for the inconvinience.**
