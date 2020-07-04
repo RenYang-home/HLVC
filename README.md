@@ -3,9 +3,9 @@ Our latest works on learned video compression:
 - Recurrent Learned Video Compression (RLVC) [[Paper](https://arxiv.org/abs/2006.13560)]
 
 # Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement
-```diff
--We corrected one model in our pre-trained models [Download link](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing), if you downloaded them before July 5, 2020, please re-download the folder "OpenHLVC\Layer3_BP-frame\Layer3_BP_PSNR_2048_aroundlayer1". We are sorry for the inconvinience.
-```
+
+**We corrected one model in our pre-trained models [Download link](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing), if you downloaded them before July 5, 2020, please re-download the folder "OpenHLVC\Layer3_BP-frame\Layer3_BP_PSNR_2048_aroundlayer1". We are sorry for the inconvinience.**
+
 The project page for the paper:
 
 > Ren Yang, Fabian Mentzer, Luc Van Gool and Radu Timofte, "Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement", in IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2020. [[Paper]](https://arxiv.org/abs/2003.01966). 
