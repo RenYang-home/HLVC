@@ -6,7 +6,7 @@ Our latest works on learned video compression:
 
 # Learning for Video Compression with Hierarchical Quality and Recurrent Enhancement
 
-**We corrected two models in our [pre-trained models](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing), if you downloaded them before July 5, 2020, please re-download the folders "HLVC_model\Layer2_B-frame\Layer2_B_MS-SSIM_64" and "HLVC_model\Layer3_BP-frame\Layer3_BP_PSNR_2048_aroundlayer1". We are sorry for the inconvinience.**
+**We corrected two models in our [pre-trained models](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing), if you downloaded them before July 5, 2020, please re-download the folders "HLVC_model\Layer2_B-frame\Layer2_B_MS-SSIM_64_model" and "HLVC_model\Layer3_BP-frame\Layer3_BP_PSNR_2048_aroundlayer1". We are sorry for the inconvinience.**
 
 The project page for the paper:
 
