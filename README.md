@@ -37,7 +37,13 @@ We provide the codes for compressing video frame in various manners, i.e.,
 
 Thay can be flexibly combined to achieve different frame structures and GOP sizes.
 
-We also provide the demo codes for compress a video sequence, i.e., HLVC_video_fast/slow.py and HLVC_video_decoder.py
+We also provide the demo codes for compress a video sequence, i.e., 
+
+- HLVC_video_fast.py
+
+- HLVC_video_slow.py
+
+- HLVC_video_decoder.py
 
 ### Preperation
 
