@@ -190,6 +190,13 @@ For example,
 python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --mode PSNR --l 1024
 ```
 
+Notice for MacOS and Window users:
+
+In the case that '-o [filename]' doesn't work and it always creates result.png as the output file, please follow the suggestions from [Maxcharm](https://github.com/Maxcharm) to rewrite all BPG decoding commands as
+```
+os.system('bpgdec ' + path_com + str(f + 1).zfill(3) + '.bin')
+os.system('mv result.png ' + path_com + 'f' + str(f + 1).zfill(3) + '.png')
+```
 - **HLVC_video_decoder.py** (currently not including the enhancement network WRQE)
 
 ```
