@@ -1,6 +1,8 @@
 Our latest works on learned video compression:
 
-- **Recurrent Learned Video Compression (RLVC), in IEEE Journal of Selected Topics in Signal Processing (J-STSP)** [[Paper](https://arxiv.org/abs/2006.13560)]
+```diff
+-**Recurrent Learned Video Compression (RLVC) (IEEE J-STSP)** [[Paper](https://arxiv.org/abs/2006.13560)] [[Project page](https://github.com/RenYang-home/RLVC)]
+```
 
 - OpenDVC: An open source implementation of DVC [[Codes](https://github.com/RenYang-home/OpenDVC)] [[Technical report](https://arxiv.org/abs/2006.15862)]
 
