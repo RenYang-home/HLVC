@@ -103,4 +103,4 @@ with open(args.bin, "wb") as ff:
 misc.imsave(args.com, np.uint8(np.round(compressed_frame[0] * 255.0)))
 bpp = (6 + len(string_MV) + len(string_Res)) * 8 / Height / Width
 
-print(args.mode + ' = ' + str(quality_com), 'bpp = ' + str(bpp))
+print(args.mode + ' (before WRQE) = ' + str(quality_com), 'bpp = ' + str(bpp))
