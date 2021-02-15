@@ -63,7 +63,7 @@ with open(path_com + 'quality_' + str(f + 1).zfill(3) + '.bin', "rb") as ff:
 bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin') \
        + os.path.getsize(path_com + 'quality_' + str(f + 1).zfill(3) + '.bin')
 
-print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
 quality_frame[f] = quality[0]
 bits_frame[f] = bits * 8
 
@@ -86,7 +86,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
     bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin') \
            + os.path.getsize(path_com + 'quality_' + str(f + 1).zfill(3) + '.bin')
 
-    print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+    print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
     quality_frame[f] = quality[0]
     bits_frame[f] = bits * 8
 
@@ -107,7 +107,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
             quality = np.frombuffer(ff.read(4), dtype=np.float32)
 
         bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin')
-        print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+        print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
         quality_frame[f] = quality[0]
         bits_frame[f] = bits * 8
 
@@ -124,7 +124,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
             quality = np.frombuffer(ff.read(4), dtype=np.float32)
 
         bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin')
-        print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+        print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
         quality_frame[f] = quality[0]
         bits_frame[f] = bits * 8
 
@@ -141,7 +141,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
             quality = np.frombuffer(ff.read(4), dtype=np.float32)
 
         bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin')
-        print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+        print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
         quality_frame[f] = quality[0]
         bits_frame[f] = bits * 8
 
@@ -161,7 +161,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
         bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin') \
                + os.path.getsize(path_com + 'quality_' + str(f + 1).zfill(3) + '.bin')
 
-        print('Decoded Frame', f + 1, args.mode + ' =', quality[0])
+        print('Decoded Frame', f + 1, args.mode + ' (before WRQE) =', quality[0])
         quality_frame[f] = quality[0]
         bits_frame[f] = bits * 8
 
@@ -220,7 +220,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
                 quality = np.frombuffer(ff.read(4), dtype=np.float32)
 
             bits = os.path.getsize(path_com + str(f_tar1).zfill(3) + '.bin')
-            print('Decoded Frame', f_tar1, args.mode + ' =', quality[0])
+            print('Decoded Frame', f_tar1, args.mode + ' (before WRQE) =', quality[0])
             quality_frame[f_tar1 - 1] = quality[0]
             bits_frame[f_tar1 - 1] = bits * 8
 
@@ -235,7 +235,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
                 quality = np.frombuffer(ff.read(4), dtype=np.float32)
 
             bits = os.path.getsize(path_com + str(f_tar2).zfill(3) + '.bin')
-            print('Decoded Frame', f_tar2, args.mode + ' =', quality[0])
+            print('Decoded Frame', f_tar2, args.mode + ' (before WRQE) =', quality[0])
             quality_frame[f_tar2 - 1] = quality[0]
             bits_frame[f_tar2 - 1] = bits * 8
 
@@ -252,8 +252,8 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
                 quality_1 = np.frombuffer(ff.read(4), dtype=np.float32)
                 quality_2 = np.frombuffer(ff.read(4), dtype=np.float32)
 
-            print('Decoded Frame', f_tar1, args.mode + ' =', quality_1[0])
-            print('Decoded Frame', f_tar2, args.mode + ' =', quality_2[0])
+            print('Decoded Frame', f_tar1, args.mode + ' (before WRQE) =', quality_1[0])
+            print('Decoded Frame', f_tar2, args.mode + ' (before WRQE) =', quality_2[0])
 
             bits = os.path.getsize(path_com + str(f_tar1).zfill(3) + '_' + str(f_tar2).zfill(3) + '.bin')
 
