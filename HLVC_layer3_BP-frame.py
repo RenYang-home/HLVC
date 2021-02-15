@@ -170,6 +170,6 @@ misc.imsave(args.com_2, np.uint8(np.round(com_frame_2[0] * 255.0)))
 
 bpp = (12 + len(string_MV) + len(string_Res_1) + len(string_Res_2)) * 8 / Height / Width
 
-print(args.mode + ' = ' + str(quality_com1))#, 'bpp = ' + str(bpp_1))
-print(args.mode + ' = ' + str(quality_com2), 'Average bpp = ' + str(bpp/2))
+print(args.mode + ' (before WRQE) = ' + str(quality_com1))#, 'bpp = ' + str(bpp_1))
+print(args.mode + ' (before WRQE) = ' + str(quality_com2), 'Average bpp = ' + str(bpp/2))
 
