@@ -90,7 +90,7 @@ bits = os.path.getsize(path_com + str(f + 1).zfill(3) + '.bin') \
 bits = bits * 8
 
 bits_frame[f] = bits / Height / Width
-print('Frame', f + 1, args.mode + ' =', quality_frame[f], 'bpp =', bits_frame[f])
+print('Frame', f + 1, args.mode + ' (before WRQE) =', quality_frame[f], 'bpp =', bits_frame[f])
 
 for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
 
@@ -130,7 +130,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
     bits = bits * 8
 
     bits_frame[f] = bits / Height / Width
-    print('Frame', f + 1, args.mode + ' =', quality_frame[f], 'bpp =', bits_frame[f])
+    print('Frame', f + 1, args.mode + ' (before WRQE) =', quality_frame[f], 'bpp =', bits_frame[f])
 
     # 2ndlayer
 
@@ -210,7 +210,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
         quality_4 = MultiScaleSSIM(np.expand_dims(F0_com, 0),
                                    np.expand_dims(F0_raw, 0), max_val=255)
 
-    print(args.mode + ' = ' + str(quality_4), 'bpp = ' + str(bits_4))
+    print(args.mode + ' (before WRQE) = ' + str(quality_4), 'bpp = ' + str(bits_4))
 
     if args.mode == 'PSNR':
         a = 10
@@ -233,7 +233,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
         bits_frame[f] += os.path.getsize(path_com + 'quality_' + str(f + 1).zfill(3) + '.bin') * 8 / Height / Width
 
     print('#############################')
-    print('Frame', f + 1, args.mode + ' =', quality_frame[f], 'bpp =', bits_frame[f])
+    print('Frame', f + 1, args.mode + ' (before WRQE) =', quality_frame[f], 'bpp =', bits_frame[f])
 
     # 3rdlayer
 
@@ -350,10 +350,10 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
 
         print('#############################')
         print('Frame', f_tar1,
-              args.mode + ' =', quality_frame[f_tar1 - 1],
+              args.mode + ' (before WRQE) =', quality_frame[f_tar1 - 1],
               'bpp =', bits_frame[f_tar1 - 1])
         print('Frame', f_tar2,
-              args.mode + ' =', quality_frame[f_tar2 - 1],
+              args.mode + ' (before WRQE) =', quality_frame[f_tar2 - 1],
               'bpp =', bits_frame[f_tar2 - 1])
 
 quality_ave = np.average(quality_frame)
@@ -364,5 +364,5 @@ with open(path_com + 'select.bin', "wb") as ff:
 
 bits_ave += os.path.getsize(path_com + 'select.bin') * 8 / Height / Width / args.frame
 
-print('Average ' + args.mode + ' =', quality_ave, 'Average bpp =', bits_ave)
+print('Average ' + args.mode + ' (before WRQE) =', quality_ave, 'Average bpp =', bits_ave)
 
