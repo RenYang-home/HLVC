@@ -105,4 +105,4 @@ bpp = os.path.getsize(args.bin) * 8 / Height / Width
 
 misc.imsave(args.com, np.uint8(np.round(compressed_frame[0] * 255.0)))
 
-# print('Decoded', args.mode + ' = ' + str(quality_com[0]), 'bpp = ' + str(bpp))
+# print('Decoded', args.mode + ' (before WRQE) = ' + str(quality_com[0]), 'bpp = ' + str(bpp))
