@@ -152,6 +152,6 @@ misc.imsave(args.com_2, np.uint8(np.round(com_frame_2[0] * 255.0)))
 bpp_1 = (6 + len(string_mv)/2 + len(string_res1)) * 8 / Height / Width
 bpp_2 = (6 + len(string_mv)/2 + len(string_res2)) * 8 / Height / Width
 
-# print('Decoded Frame 1', args.mode + ' = ' + str(quality_com1[0]), 'bpp = ' + str(bpp_1))
-# print('Decoded Frame 2', args.mode + ' = ' + str(quality_com2[0]), 'bpp = ' + str(bpp_2))
+# print('Decoded Frame 1', args.mode + ' (before WRQE) = ' + str(quality_com1[0]), 'bpp = ' + str(bpp_1))
+# print('Decoded Frame 2', args.mode + ' (before WRQE) = ' + str(quality_com2[0]), 'bpp = ' + str(bpp_2))
 
