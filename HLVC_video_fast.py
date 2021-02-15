@@ -92,7 +92,7 @@ bits = bits * 8
 
 bits_frame[f] = bits / Height / Width
 print('Frame', f + 1)
-print(args.mode + ' =', quality_frame[f], 'bpp =', bits_frame[f])
+print(args.mode + ' (before WRQE) =', quality_frame[f], 'bpp =', bits_frame[f])
 
 for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
 
@@ -133,7 +133,7 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
 
     bits_frame[f] = bits / Height / Width
     print('Frame', f + 1)
-    print(args.mode + ' =', quality_frame[f], 'bpp =', bits_frame[f])
+    print(args.mode + ' (before WRQE) =', quality_frame[f], 'bpp =', bits_frame[f])
 
     # 2ndlayer
 
@@ -231,5 +231,5 @@ with open(path_com + 'select.bin', "wb") as ff:
 
 bits_ave += os.path.getsize(path_com + 'select.bin') * 8 / Height / Width / args.frame
 
-print('Average ' + args.mode + ' =', quality_ave, 'Average bpp =', bits_ave)
+print('Average ' + args.mode + ' (before WRQE) =', quality_ave, 'Average bpp =', bits_ave)
 
