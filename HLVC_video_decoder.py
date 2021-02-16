@@ -263,5 +263,17 @@ for g in range(np.int(np.ceil((args.frame-1)/args.GOP))):
             quality_frame[f_tar2 - 1] = quality_2[0]
             bits_frame[f_tar2 - 1] = bits * 8 / 2
 
-# if args.enh == 1:
-#     enhancement codes
+if args.enh == 1:
+
+    np.save(path_com + 'quality.npy', quality_frame)
+    np.save(path_com + 'bits.npy', bits_frame)
+
+    os.system(args.python_path + ' WRQE.py --path_bin ' + path_com + ' --mode ' + args.mode +
+              ' --frame ' + str(args.frame) + ' --GOP ' + str(args.GOP) + ' --l ' + str(args.l)
+              + ' --path_raw ' + args.path_raw)
+
+    os.makedirs(path_com + 'frames_HLVC', exist_ok=True)
+    os.system('mv *_enh.png ' + path_com + 'frames_HLVC')
+
+os.makedirs(path_com + 'frames_beforeWRQE', exist_ok=True)
+os.system('mv *.png ' + path_com + 'frames_beforeWRQE')
