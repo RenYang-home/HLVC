@@ -174,9 +174,6 @@ for g in range(gops):
 if args.path_raw is not None:
     print('Average ' + args.mode + ' (after WRQE) =', np.mean(quality_enh))
 
-    file = open("./results_hlvc.txt", "a")
-    file.write(args.path_raw + ' ' + str(args.l) + 'Average bpp = ' + np.mean(quality_enh) + '\n')
-
     # print(np.mean(quality_com))
     # print(np.mean(quality_enh))
     #
