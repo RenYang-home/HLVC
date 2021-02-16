@@ -375,8 +375,8 @@ if args.enh == 1:
               ' --frame ' + str(args.frame) + ' --GOP ' + str(args.GOP) + ' --l ' + str(args.l)
               + ' --path_raw ' + args.path)
 
-    os.makedirs(path_com + 'frames_HLVC_fast', exist_ok=True)
+    os.makedirs(path_com + 'frames_HLVC_slow', exist_ok=True)
     os.system('mv ' + path_com + '*_enh.png ' + path_com + 'frames_HLVC')
 
-os.makedirs(path_com + 'frames_beforeWRQE_fast', exist_ok=True)
+os.makedirs(path_com + 'frames_beforeWRQE_slow', exist_ok=True)
 os.system('mv ' + path_com + '*.png ' + path_com + 'frames_beforeWRQE')
