@@ -166,28 +166,30 @@ python HLVC_layer3_BP-frame_decoder.py --ref f001_com.png --com_1 f001_com.png -
 
 ### Compressing video
 
-- **HLVC_video_fast/slow.py** (currently not including the enhancement network WRQE)
+- **HLVC_video_fast/slow.py**
 
 We provide two demo codes for compressing a video sequence. In HLVC_video_fast.py, the B-frames are used for layer 2 and the BP-frames combination is used for layer 3. In HLVC_video_slow, we try different networks for compresseing layers 2 and 3 in an exhaustive manner, and select the best performed network. This way, the performance can be improved at the cost of higher complexity. To compare two compression networks, in the case of Quality_2 - Quality_1 > 0 and bpp_2 - bpp_1 > 0, if (Quality_2 - Quality_1)/(bpp_2 - bpp_1) > threshold, the 2nd network is considered as the better one. We empirically set the threshold as 10 for PSNR (dB) and 0.1 for MS-SSIM index. 
 
 HLVC_video_fast/slow.py has the following auguments:
 ```
---path, the path to the PNG files.
+--path, the path to the PNG files;
 
---frame, the total frame, should be GOP (=10) * n + 1, e.g., 101.
+--frame, the total frame, should be GOP (=10) * n + 1, e.g., 101;
 
---mode, PSNR or MS-SSIM.
+--mode, PSNR or MS-SSIM;
 
 --python_path, the path to python (only used for MS-SSIM model to run Lee et al., ICLR 2019 on I-frames);
 
 --CA_model_path, the path to CA_EntropyModel_Test of Lee et al., ICLR 2019 (only used for MS-SSIM model);
 
---l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM.
+--l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM;
+
+--enh, enable enhancement network WRQE (=1) or not (=0).
 
 ```
 For example,
 ```
-python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --mode PSNR --l 1024
+python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --mode PSNR --l 1024 --enh 1
 ```
 
 Notice for MacOS and Window users:
@@ -197,30 +199,29 @@ In the case that '-o [filename]' doesn't work and it always creates result.png a
 os.system('bpgdec ' + path_com + str(f + 1).zfill(3) + '.bin')
 os.system('mv result.png ' + path_com + 'f' + str(f + 1).zfill(3) + '.png')
 ```
-- **HLVC_video_decoder.py** (currently not including the enhancement network WRQE)
-
+- **HLVC_video_decoder.py**
 ```
 --path_bin, the path to the bin files (bitstreams).
 
---frame, the total frame, should be GOP (=10) * n + 1, e.g., 101.
+--path_raw, the path to the raw frames (optional, only useful when calculating compressed quality, if it is none, the quality after WRQE cannot be obtained);
 
---mode, PSNR or MS-SSIM.
+--frame, the total frame, should be GOP (=10) * n + 1, e.g., 101;
+
+--mode, PSNR or MS-SSIM;
 
 --python_path, the path to python (only used for MS-SSIM model to run Lee et al., ICLR 2019 on I-frames);
 
 --CA_model_path, the path to CA_EntropyModel_Test of Lee et al., ICLR 2019 (only used for MS-SSIM model);
 
---l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM.
+--l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM;
+
+--enh, enable enhancement network WRQE (=1) or not (=0).
 
 ```
 For example,
 ```
-python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --frame 101 --mode PSNR --l 1024
+python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --path_raw BasketballPass --frame 101 --mode PSNR --l 1024 --enh 1
 ```
-
-### To do
-
-Release the codes of the enhancement network WRQE.
 
 
 ## Performance
