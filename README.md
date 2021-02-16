@@ -89,6 +89,8 @@ We uploaded a prepared sequence *BasketballPass* here as a test demo, which cont
 
 ### Compressing frame
 
+The WRQE enhancement network cannot be applied to a single frame, since it contains bi-directional recurrent cells. Please refer to the video compression in the following for the enhancement network WRQE.
+
 - **HLVC_layer2_P-frame(_decoder).py**
 
 ```
@@ -164,7 +166,7 @@ python HLVC_layer3_BP-frame.py --ref f001_com.png --raw_1 f001.png --com_1 f001_
 python HLVC_layer3_BP-frame_decoder.py --ref f001_com.png --com_1 f001_com.png --com_2 f002_com.png --bin f001_002.bin --nearlayer 1 --mode PSNR --l 1024
 ```
 
-### Compressing video
+### Compressing video (optionally with WRQE)
 
 - **HLVC_video_fast/slow.py**
 
