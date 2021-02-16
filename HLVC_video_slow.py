@@ -19,7 +19,7 @@ parser.add_argument("--mode", default='PSNR', choices=['PSNR', 'MS-SSIM'])
 parser.add_argument("--python_path", default='python')
 parser.add_argument("--CA_model_path", default='CA_EntropyModel_Test')
 parser.add_argument("--l", type=int, default=1024, choices=[8, 16, 32, 64, 256, 512, 1024, 2048])
-
+parser.add_argument("--enh", type=int, default=1, choices=[0, 1])
 args = parser.parse_args()
 
 assert (args.frame % args.GOP == 1)
@@ -366,3 +366,17 @@ bits_ave += os.path.getsize(path_com + 'select.bin') * 8 / Height / Width / args
 
 print('Average ' + args.mode + ' (before WRQE) =', quality_ave, 'Average bpp =', bits_ave)
 
+if args.enh == 1:
+
+    np.save(path_com + 'quality.npy', quality_frame)
+    np.save(path_com + 'bits.npy', bits_frame)
+
+    os.system(args.python_path + ' WRQE.py --path_bin ' + path_com + ' --mode ' + args.mode +
+              ' --frame ' + str(args.frame) + ' --GOP ' + str(args.GOP) + ' --l ' + str(args.l)
+              + ' --path_raw ' + args.path)
+
+    os.makedirs(path_com + 'frames_HLVC_fast', exist_ok=True)
+    os.system('mv ' + path_com + '*_enh.png ' + path_com + 'frames_HLVC')
+
+os.makedirs(path_com + 'frames_beforeWRQE_fast', exist_ok=True)
+os.system('mv ' + path_com + '*.png ' + path_com + 'frames_beforeWRQE')
