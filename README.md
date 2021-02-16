@@ -191,6 +191,7 @@ For example,
 ```
 python HLVC_video_fast/slow.py --path BasketballPass --frame 101 --mode PSNR --l 1024 --enh 1
 ```
+**Notice:** Although WRQE shoule be at the decoder side, we also add it to the encoder in this demo to make users easier to get the complete results. The compressed frames before WRQE will be stored as ./(output_path)/frames_beforeWRQE/fxxx.png, and the output after WRQE (if enabled) will be stored as ./(output_path)/frames_HLVC/fxxx.png, which is the final result of the HLVC approach.
 
 Notice for MacOS and Window users:
 
@@ -222,7 +223,6 @@ For example,
 ```
 python HLVC_video_decoder.py --path_bin BasketballPass_com_slow_PSNR_1024 --path_raw BasketballPass --frame 101 --mode PSNR --l 1024 --enh 1
 ```
-
 
 ## Performance
 ### Settings
