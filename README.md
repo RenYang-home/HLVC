@@ -184,7 +184,7 @@ HLVC_video_fast/slow.py has the following auguments:
 
 --l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM;
 
---enh, enable enhancement network WRQE (=1) or not (=0).
+--enh, enable the enhancement network WRQE (=1) or not (=0).
 
 ```
 For example,
@@ -216,7 +216,7 @@ os.system('mv result.png ' + path_com + 'f' + str(f + 1).zfill(3) + '.png')
 
 --l, lambda value. l = 256, 512, 1024 and 2048 for PSNR, and l = 8, 16, 32 and 64 for MS-SSIM;
 
---enh, enable enhancement network WRQE (=1) or not (=0).
+--enh, enable the enhancement network WRQE (=1) or not (=0).
 
 ```
 For example,
