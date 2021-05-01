@@ -75,7 +75,7 @@ We uploaded a prepared sequence *BasketballPass* here as a test demo, which cont
 
   (*After downloading, put the folder "tensorflow_compression" to the same directory as the codes.*)
 
-- Pre-trained models ([Download link](https://drive.google.com/drive/folders/1JWRIp7RgZZEulrUfQAlbAnAkA6MAKRbE?usp=sharing))
+- Pre-trained models ([Download link](https://data.vision.ee.ethz.ch/reyang/HLVC_model.zip))
 
   (*Download the folder "HLVC_model" to the same directory as the codes.*)
 
