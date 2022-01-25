@@ -71,7 +71,7 @@ def tf_inverse_flow(flow_input, b, h, w):
     for r in range(b):
 
         flow = flow_list[r]
-        grid1 = grid + flow
+        grid1 = grid - flow
 
         x1, y1 = tf.split(grid1, [1, 1], axis=-1)
         x1 = tf.clip_by_value(x1, 0, h - 1)
