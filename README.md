@@ -69,7 +69,7 @@ Note that, our HLVC codes currently only support the frames with the height and 
 ffmpeg -pix_fmt yuv420p -s 1920x1080 -i Name.yuv -vframes Frame -filter:v "crop=1920:1072:0:0" path_to_PNG/f%03d.png
 ```
 
-We uploaded a prepared sequence *BasketballPass* here as a test demo, which contains the PNG files of the first 101 frames. Note that, ffmpeg generates frames starting from f001.png in the folder "BasketballPass", while in Figure 1, the frame index begins from 0.
+We uploaded a prepared sequence *BasketballPass* here as a test demo, which contains the PNG files of the first 101 frames. Note that, FFMPEG generates frames starting from f001.png in the folder "BasketballPass", while in Figure 1, the frame index begins from 0.
 
 ### Dependency
 
@@ -79,7 +79,7 @@ We uploaded a prepared sequence *BasketballPass* here as a test demo, which cont
 
   (*After downloading, put the folder "tensorflow_compression" to the same directory as the codes.*)
 
-- Pre-trained models ([Download link](https://data.vision.ee.ethz.ch/reyang/HLVC_model.zip))
+- Pre-trained models ([Download link](https://drive.google.com/file/d/149PcV2pQBUVR4G9ucdmQ3msXF55My4Y9/view?usp=drive_link))
 
   (*Download the folder "HLVC_model" to the same directory as the codes.*)
 
